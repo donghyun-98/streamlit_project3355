@@ -665,7 +665,7 @@ def main():
     restaurant_df = load_restaurant_data(restaurant_filepath)
 
     # 명당 데이터 불러오기
-    place_filepath = 'datafile/rank_merged_total_1024.csv'
+    place_filepath = 'datafile/rank_merged_total_1028.csv'
     place_df = load_place_data(place_filepath)
     recommend_data = load_and_preprocess_data(place_filepath)
 
