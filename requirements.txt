@@ -75,7 +75,7 @@ protobuf==4.24.4
 psutil==6.0.0
 ptyprocess==0.7.0
 PuLP==2.8.0
-pyarrow==12.0.1
+pyarrow==12.0.0
 pycparser==2.21
 pydeck==0.8.1b1
 Pygments==2.17.2
