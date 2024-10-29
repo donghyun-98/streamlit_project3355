@@ -6,3 +6,4 @@ Pillow==8.4.0
 plotly
 matplotlib==3.5.3
 setuptools==65.5.0
+wheel
