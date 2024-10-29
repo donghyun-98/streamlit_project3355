@@ -2,7 +2,7 @@ setuptools==65.5.0
 wheel
 streamlit==1.16.0
 pandas==1.3.5
-numpy>=1.24.0
+numpy==1.21.6 
 keplergl==0.3.0
 Pillow==8.4.0
 plotly
