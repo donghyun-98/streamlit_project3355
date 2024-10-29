@@ -1,6 +1,6 @@
 streamlit==1.16.0
 pandas==1.3.5
-numpy==1.21.6
+numpy==1.23.5  # 최신 안정 버전으로 조정
 keplergl==0.3.0
 Pillow==8.4.0
 plotly
