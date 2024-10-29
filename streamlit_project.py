@@ -817,7 +817,7 @@ def main():
             """, unsafe_allow_html=True)
             
             st.markdown("""
-            <br><br><br>
+            <br><br>
             """, unsafe_allow_html=True)
             
             
@@ -866,7 +866,6 @@ def main():
             st.markdown("""
             <br><br>
             """, unsafe_allow_html=True)
-            
             # 본문 - 탭
             st.markdown("""
             <section style="background-color: rgba(211, 211, 211, 0.1); padding: 15px;">
@@ -900,7 +899,6 @@ def main():
             </p>
             </section>
             """, unsafe_allow_html=True)
-
             st.markdown("""
             <br><br><br>
             """, unsafe_allow_html=True)
@@ -963,6 +961,14 @@ def main():
                         </div>
                     </div>
                 </div>
+            """, unsafe_allow_html=True)
+            
+            
+            # 권장사항 문구 추가
+            st.markdown("""
+            <div style="display: flex; justify-content: center; background-color: rgba(255, 215, 0, 0.2); padding: 10px; border-radius: 10px; margin-top: 100px;">
+                <h5 style="color: darkorange; font-weight: bold; margin-top: 15px;">본 서비스는 크롬 브라우저 사용을 권장하며, 화면 축소비율은 80%에서 가장 이상적으로 작동합니다.</h5>
+            </div>
             """, unsafe_allow_html=True)
 
 
