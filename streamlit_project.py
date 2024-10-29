@@ -22,7 +22,7 @@ import base64
 from io import BytesIO
 import altair as alt
 
-print(alt.__version__)
+
 
 # 폰트 파일 경로
 font_path = 'fonts/SCDream6.otf'
@@ -385,7 +385,13 @@ def display_data_table(restaurant_df, place_df, selected_indicators=None, select
                     styles[col_idx] = 'color: red'
             return styles
 
-        styled_df = df_filtered.style.apply(highlight_target_column, axis=1)
+        # 소수점 두 자리 및 정수 포맷 적용
+        styled_df = df_filtered.style.apply(highlight_target_column, axis=1).format({
+            '거리': "{:.2f}",
+            '혼잡도비율': "{:.2f}",
+            '점포수': "{:,.0f}",
+            '접근성소요시간': "{:,.0f}"
+        })
 
         # 데이터프레임 표시
         st.dataframe(styled_df, hide_index=True)
