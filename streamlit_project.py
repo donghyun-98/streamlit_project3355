@@ -243,7 +243,7 @@ def sidebar_filters(restaurant_df, place_df):
 
         
         st.markdown("""
-        <br><br><br><br><br><br><br><br>
+        <br><br>
         """, unsafe_allow_html=True)
         # 권장사항 문구 추가
         st.markdown("""
@@ -459,7 +459,7 @@ def congestion_figure(stay_final_dong, dong):
         hovermode="x unified",
         hoverlabel_bgcolor="WhiteSmoke",
         hoverlabel_font=dict(size=15,weight='bold'),
-        legend=dict(orientation='h',yanchor='bottom', xanchor='center', y=-0.23, x=0.5,
+        legend=dict(orientation='h',yanchor='bottom', xanchor='center', y=-0.35, x=0.5,
                     font=dict(size=14)
     ),
         margin=dict(t=130))
@@ -484,7 +484,7 @@ def congestion_figure(stay_final_dong, dong):
         title_x=0.01,
         title_font_size=25,
         font_size=15,
-        legend=dict(orientation='h', entrywidth=100, yanchor='bottom', xanchor='center', y=-0.4, x=0.5,font=dict(size=15)),
+        legend=dict(orientation='h', yanchor='bottom', xanchor='center', y=-0.5, x=0.5,font=dict(size=15)),
         legend_title_text=None,
         margin=dict(t=120)
     )
@@ -555,7 +555,7 @@ def congestion_figure(stay_final_dong, dong):
         title_x=0.01,
         title_font_size=25,
         font_size=12,
-        legend=dict(orientation='h', yanchor='bottom', xanchor='center', y=-0.2, x=0.5,font=dict(size=15)),
+        legend=dict(orientation='h', yanchor='bottom', xanchor='center', y=-0.3, x=0.5,font=dict(size=15)),
         margin=dict(t=120)
     )
     fig3.update_xaxes(range=[-20, 20],  # x축 범위 설정
