@@ -7,7 +7,6 @@
 
 ######################## 필요한 모듈들 ########################
 import streamlit as st
-from streamlit_extras.app_logo import add_logo
 import pandas as pd
 import numpy as np
 from keplergl import KeplerGl
