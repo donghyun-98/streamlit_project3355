@@ -241,6 +241,21 @@ def sidebar_filters(restaurant_df, place_df):
         elif filtered_restaurant_df.empty:
             st.info("검색 결과는 명당 데이터에만 있습니다.")
 
+        
+        st.markdown("""
+        <br><br><br><br><br><br><br><br>
+        """, unsafe_allow_html=True)
+        # 권장사항 문구 추가
+        st.markdown("""
+        <div style="display: flex; justify-content: center; background-color: rgba(255, 215, 0, 0.2); padding: 10px; border-radius: 10px; margin-bottom: 20px;">
+            <p style="color: darkorange; font-weight: bold; font-size: 14px; margin: 0; text-align: left;">
+                크롬 브라우저 사용을 권장하며<br> 
+                화면 축소비율은 80%에서<br> 
+                가장 이상적으로 작동합니다.
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+        
 
     return filtered_restaurant_df, filtered_df, select_indicator, show_restaurants
 
@@ -962,15 +977,6 @@ def main():
                     </div>
                 </div>
             """, unsafe_allow_html=True)
-            
-            
-            # 권장사항 문구 추가
-            st.markdown("""
-            <div style="display: flex; justify-content: center; background-color: rgba(255, 215, 0, 0.2); padding: 10px; border-radius: 10px; margin-top: 100px;">
-                <h5 style="color: darkorange; font-weight: bold; margin-top: 15px;">본 서비스는 크롬 브라우저 사용을 권장하며, 화면 축소비율은 80%에서 가장 이상적으로 작동합니다.</h5>
-            </div>
-            """, unsafe_allow_html=True)
-
 
 
 
