@@ -20,6 +20,9 @@ import matplotlib.font_manager as fm
 import matplotlib.pyplot as plt
 import base64
 from io import BytesIO
+import altair as alt
+
+print(alt.__version__)
 
 # 폰트 파일 경로
 font_path = 'fonts/SCDream6.otf'
