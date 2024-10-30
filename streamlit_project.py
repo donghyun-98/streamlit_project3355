@@ -620,16 +620,16 @@ def create_radar_chart(data, title):
 
     # 각 레이블의 y 위치를 수동으로 조정
     for i, category in enumerate(categories):
-        plt.text(angles[i], y_offset, category, ha='center', va='bottom', color='black', fontsize=8, fontweight='bold')
+        plt.text(angles[i], y_offset, category, ha='center', va='bottom', color='black', fontsize=8, fontweight='bold', fontproperties=font_prop)
 
     # y축 눈금 설정
-    plt.yticks([0, 2, 4, 6, 8, 10], ["0", "2", "4", "6", "8", "10"], color="grey", size=7)
+    plt.yticks([0, 2, 4, 6, 8, 10], ["0", "2", "4", "6", "8", "10"], color="grey", size=7, fontproperties=font_prop)
     plt.ylim(0, 10)
 
     ax.plot(angles, values, linewidth=2, linestyle='solid', label=selected_name)
     ax.fill(angles, values, alpha=0.4)
 
-    plt.title(title, size=13, y=1.1, fontweight='bold')
+    plt.title(title, size=13, y=1.1, fontweight='bold', fontproperties=font_prop)
 
     return fig
 
