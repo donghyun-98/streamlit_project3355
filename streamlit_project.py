@@ -578,25 +578,20 @@ def congestion_figure(stay_final_dong, dong):
                  title = None,  tickfont=dict(size=14))
     st.plotly_chart(fig3, config={'displayModeBar': False})
 
+
 # 데이터 로드 및 전처리 함수
 def load_and_preprocess_data(file_path):
     df = pd.read_csv(file_path, encoding='utf-8')
-    recommend = df[['건물명', '전체주소', '추천장소이름', '가시성등급', '거리', '점포수', '혼잡도비율', '접근성소요시간']].reset_index(drop=True)
-    recommend.rename(columns={'점포수': '상권발달 점수'}, inplace=True)
+    recommend = df[['건물명', '전체주소', '추천장소이름', '가시성등급', '거리등급', '상권발달등급', '쾌적도등급', '접근성등급']].reset_index(drop=True)
 
-    # 정규화 및 점수 계산
-    recommend['가시성 점수'] = normalize(6 - recommend['가시성등급'])
-    recommend['거리 점수'] = 1 - normalize(recommend['거리'])
-    recommend['상권발달 점수'] = normalize(recommend['상권발달 점수'])
-    recommend['쾌적도 점수'] = 1 - normalize(recommend['혼잡도비율'])
-    recommend['접근성 점수'] = 1 - normalize(recommend['접근성소요시간'])
+    # 등급을 레이더 차트에 직접 사용하여 1등급은 10, 2등급은 8, ..., 5등급은 2로 변환
+    recommend['가시성 점수'] = 12 - 2 * recommend['가시성등급']
+    recommend['거리 점수'] = 12 - 2 * recommend['거리등급']
+    recommend['상권발달 점수'] = 12 - 2 * recommend['상권발달등급']
+    recommend['쾌적도 점수'] = 12 - 2 * recommend['쾌적도등급']
+    recommend['접근성 점수'] = 12 - 2 * recommend['접근성등급']
 
     return recommend[['추천장소이름', '가시성 점수', '거리 점수', '상권발달 점수', '쾌적도 점수', '접근성 점수', '전체주소', '건물명']]
-
-
-# 정규화 함수
-def normalize(column):
-    return (column - column.min()) / (column.max() - column.min())
 
 
 # 레이더 차트 생성 함수
@@ -619,25 +614,25 @@ def create_radar_chart(data, title):
     ax.set_theta_offset(pi / 2)
     ax.set_theta_direction(-1)
 
-    plt.xticks(angles[:-1], [''] * len(categories), color='black', size=9, ha='center', fontproperties=font_prop)  # 빈 문자열로 레이블 설정
+    plt.xticks(angles[:-1], [''] * len(categories), color='black', size=9, ha='center')  # 빈 문자열로 레이블 설정
 
     # 레이블이 표시될 y 좌표를 설정하기 위한 오프셋
-    y_offset = 1.12  # 그래프의 반지름보다 약간 큰 값을 설정
+    y_offset = 11.2  # 그래프의 반지름보다 약간 큰 값을 설정
 
     # 각 레이블의 y 위치를 수동으로 조정
     for i, category in enumerate(categories):
-        plt.text(angles[i], y_offset, category, ha='center', va='bottom', color='black', fontsize=8, fontweight='bold', fontproperties=font_prop)
+        plt.text(angles[i], y_offset, category, ha='center', va='bottom', color='black', fontsize=8, fontweight='bold')
 
-    plt.yticks([0.2, 0.4, 0.6, 0.8], ["2", "4", "6", "8"], color="grey", size=7)
-    plt.ylim(0, 1)
+    # y축 눈금 설정
+    plt.yticks([0, 2, 4, 6, 8, 10], ["0", "2", "4", "6", "8", "10"], color="grey", size=7)
+    plt.ylim(0, 10)
 
     ax.plot(angles, values, linewidth=2, linestyle='solid', label=selected_name)
     ax.fill(angles, values, alpha=0.4)
 
-    plt.title(title, size=13, y=1.1, fontweight='bold', fontproperties=font_prop)
+    plt.title(title, size=13, y=1.1, fontweight='bold')
 
     return fig
-
 
 # 이미지 업로드 함수
 def upload_image():
