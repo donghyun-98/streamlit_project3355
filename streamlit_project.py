@@ -23,7 +23,6 @@ from io import BytesIO
 import altair as alt
 
 
-
 # 현재 파일의 디렉터리를 기준으로 폰트 경로 설정
 font_path = os.path.join(os.path.dirname(__file__), 'fonts', 'SCDream6.otf')
 font_prop = fm.FontProperties(fname=font_path)
