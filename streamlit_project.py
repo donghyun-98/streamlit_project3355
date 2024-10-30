@@ -24,12 +24,10 @@ import altair as alt
 
 
 
-# 폰트 파일 경로
-font_path = 'fonts/SCDream6.otf'
+# 현재 파일의 디렉터리를 기준으로 폰트 경로 설정
+font_path = os.path.join(os.path.dirname(__file__), 'fonts', 'SCDream6.otf')
 font_prop = fm.FontProperties(fname=font_path)
-# 폰트 설정
 plt.rcParams['font.family'] = font_prop.get_name()
-
 
 
 # 배경화면과 탭 스타일을 함께 설정하는 함수
