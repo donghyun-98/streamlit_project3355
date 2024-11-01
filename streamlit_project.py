@@ -361,7 +361,7 @@ def display_map(restaurant_df, place_df, show_restaurants):
 def display_data_table(restaurant_df, place_df, selected_indicators=None, selected_place_types=None):
     # 필요한 컬럼만 선택
     selected_columns = ['건물명', '전체주소', '장소종류', '가시성등급', '거리', '거리등급', '점포수', 
-                        '상권발달등급', '혼잡도비율', '쾌적도등급', '접근성소요시간', 
+                        '상권발달등급', '축제날인구수', '혼잡도비율', '쾌적도등급', '접근성소요시간', 
                         '접근성등급', '추천장소이름', '추천장소여부']
     
     if selected_indicators:
